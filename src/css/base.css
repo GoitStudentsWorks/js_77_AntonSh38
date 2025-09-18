@@ -1,11 +1,20 @@
 :root {
-  /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: 'IBM Plex Sans', 'Open Sans', 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #02060a;
-  background-color: #f6f4f1;
+  --font-family: 'IBM Plex Sans' sans-serif;
+  --font-weight: 400;
+  --font-size: 16px;
+  --line-height: 1.5;
+  --color: #02060a;
+  --background-color: #f6f4f1;
+
+  --btnfirst-bg: #88765c;
+  --btnfirst-color: #fff;
+  --btnfirst-hover-bg: #c3b49d;
+  --btnfirst-hover-color: #02060a;
+
+  --btnsecond-bg: #eee9e3;
+
+  --btnsecond-hover-bg: #c3b49d;
+  --btnsecond-hover-color: #02060a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,35 +30,36 @@ body {
   line-height: var(--line-height);
   color: var(--color);
   background-color: var(--background-color);
-
-  display: flex;
-  flex-direction: column;
-  min-width: 100vw;
-  min-height: 100vh;
   margin: 0;
 }
 
-button {
+button.first {
   border: 1px solid #88765c;
   border-radius: 8px;
-  padding: 8px 20px;
-  background-color: #88765c;
-  color: #fff;
+  background-color: var(--btnfirst-bg);
+  color: var(--btnfirst-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-button:hover,
-button:focus {
-  cursor: pointer;
+button.first:hover,
+button.first:focus {
   border: 1px solid #02060a;
   border-radius: 8px;
-  padding: 12px 24px;
-  background-color: #c3b49d;
-  color: #02060a;
+  background-color: var(--btnfirst-hover-bg);
+  color: var(--btnfirst-hover-color);
 }
 
-main {
-  flex-grow: 1;
+button.second {
+  border: 1px solid #02060a;
+  border-radius: 8px;
+  background-color: var(--btnsecond-bg);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
-main:has(.back-link) {
-  text-align: center;
+
+button.second:hover,
+button.second:focus {
+  background-color: var(--btnsecond-hover-bg);
+  color: var(--btnsecond-hover-color);
 }
