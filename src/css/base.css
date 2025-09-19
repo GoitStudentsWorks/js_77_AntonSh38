@@ -33,33 +33,33 @@ body {
   margin: 0;
 }
 
-button.first {
+button.btnfirst {
   border: 1px solid #88765c;
   border-radius: 8px;
   background-color: var(--btnfirst-bg);
   color: var(--btnfirst-color);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
-button.first:hover,
-button.first:focus {
+button.btnfirst:hover,
+button.btnfirst:focus {
   border: 1px solid #02060a;
   border-radius: 8px;
   background-color: var(--btnfirst-hover-bg);
   color: var(--btnfirst-hover-color);
 }
 
-button.second {
+button.btnsecond {
   border: 1px solid #02060a;
   border-radius: 8px;
   background-color: var(--btnsecond-bg);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
-button.second:hover,
-button.second:focus {
+button.btnsecond:hover,
+button.btnsecond:focus {
   background-color: var(--btnsecond-hover-bg);
   color: var(--btnsecond-hover-color);
 }

@@ -1,5 +1,5 @@
 {
-  "name": "vanilla-app-template",
+  "name": "/The_Little_House_of_Paws/",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -17,9 +17,15 @@
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "accordion-js": "^3.4.1",
     "axios": "^1.12.2",
+    "basiclightbox": "^5.0.4",
+    "css-star-rating": "^1.3.1",
     "izitoast": "^1.4.0",
+    "raty-js": "^4.3.0",
     "simplelightbox": "^2.14.3",
+    "sweetalert2": "^11.23.0",
+    "swiper": "^12.0.2",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
   }
