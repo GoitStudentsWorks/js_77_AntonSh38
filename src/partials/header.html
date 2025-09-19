@@ -1,1 +1,38 @@
+<header class="header">
+  <div class="container">
+    <a class="logo" href="/"
+      ><img class="logo-img" src="logo.svg" alt="" /><span class="logo-text"
+        >Хатинка<br />Лапок</span
+      ></a
+    >
 
+    <!-- бургер -->
+    <button
+      class="burger"
+      id="burger"
+      aria-label="Меню"
+      aria-controls="nav"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- навігація -->
+    <nav class="nav" id="nav" aria-label="Головна навігація">
+      <ul class="nav-list">
+        <li><a href="#">Знайди друга</a></li>
+        <li><a href="#">Про нас</a></li>
+        <li><a href="#">Часті запитання</a></li>
+        <li><a href="#">Історії успіху</a></li>
+      </ul>
+      <!-- Кнопка для моб/планшета (всередині бургер-меню) -->
+      <button class="btn btn--in-nav" type="button">Взяти друга</button>
+    </nav>
+
+    <!-- Кнопка для десктопа (праворуч в кінці) -->
+    <div class="cta">
+      <button class="btn btn--desktop" type="button">Взяти друга</button>
+    </div>
+  </div>
+  <div class="overlay" id="overlay" hidden></div>
+</header>

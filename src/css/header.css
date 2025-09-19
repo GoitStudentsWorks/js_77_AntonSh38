@@ -1,0 +1,270 @@
+/* =========================
+   Хатинка Лапок — Header CSS (pixel-perfect)
+   ========================= */
+
+/* ---- TOKENS (як у макеті) ---- */
+:root {
+    --bg: #F6F5F3;
+    --line: #E6E4DE;
+
+    --text: #1E1E1E;
+    /* логотип */
+    --muted: #2F2F2F;
+    /* лінки */
+
+    --brand: #6A4E2F;
+    /* кнопка */
+    --brand-700: #5B4127;
+
+    --ff: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+    --header-h: 64px;
+
+    --logo-w: 40px;
+    --logo-h: 40px;
+    --logo-fs: 18px;
+
+    --gap-ln: 32px;
+    /* між пунктами меню */
+    --gap-logo-nav: 48px;
+    /* між логотипом і меню */
+
+    --btn-radius: 10px;
+    --btn-px: 24px;
+    --btn-py: 10px;
+
+    --container-max: 1296px;
+    --container-pad: 72px;
+}
+
+/* ---- BASE ---- */
+.header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+    /* моб/таб */
+    min-height: var(--header-h);
+    display: flex;
+    /* <1440px */
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* LOGO */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo-img {
+    width: var(--logo-w);
+    height: var(--logo-h);
+    object-fit: contain;
+    display: block;
+    /* фікс «базової лінії» у <img> */
+}
+
+.logo-text {
+    font: 700 var(--logo-fs)/1.1 var(--ff);
+    letter-spacing: .1px;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list a {
+    color: var(--muted);
+    text-decoration: none;
+    font: 500 14px/1 var(--ff);
+    transition: color .2s ease;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+    color: var(--brand);
+}
+
+/* BUTTON — без постійної зовнішньої рамки! лише внутрішній штрих + легка тінь */
+.btn {
+    border: 0;
+    border-radius: var(--btn-radius);
+    padding: var(--btn-py) var(--btn-px);
+    background: var(--brand);
+    color: #fff;
+    font: 600 15px/1 var(--ff);
+    cursor: pointer;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, .55),
+        /* світлий інсет-штрих */
+        0 2px 0 rgba(0, 0, 0, .06);
+    /* м’яка тінь знизу */
+    transition: background-color .2s, transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+    background: var(--brand-700);
+    transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+    outline: 2px solid rgba(106, 78, 47, .28);
+    /* акуратний focus-ring */
+    outline-offset: 2px;
+}
+
+/* BURGER (<1440px) */
+.burger {
+    display: none;
+    width: 26px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.burger span {
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    background: #2F2F2F;
+    transition: transform .25s, opacity .25s;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .35);
+    z-index: 1000;
+}
+
+.overlay[hidden] {
+    display: none;
+}
+
+/* =========================
+   MOBILE + TABLET (<1440px): off-canvas
+   ========================= */
+@media (max-width: 1439px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100dvh;
+        background: var(--bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 28px;
+        transition: right .3s ease-in-out;
+        z-index: 1001;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .btn {
+        padding: var(--btn-py) var(--btn-px);
+        font-size: 15px;
+    }
+
+    /* burger → close */
+    .burger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .burger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* вузькі мобілки */
+@media (max-width: 374px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .btn {
+        padding: 9px 20px;
+        font-size: 14px;
+    }
+}
+
+/* =========================
+   DESKTOP (≥1440px) — точне позиціювання як у макеті
+   ========================= */
+@media (min-width: 1440px) {
+    .container {
+        max-width: var(--container-max);
+        padding: 0 var(--container-pad);
+        min-height: var(--header-h);
+        display: grid;
+        /* logo | nav | btn */
+        grid-template-columns: auto 1fr auto;
+        column-gap: var(--gap-logo-nav);
+        align-items: center;
+    }
+
+    .burger {
+        display: none;
+    }
+
+    .nav {
+        position: static;
+        background: transparent;
+        height: auto;
+        gap: var(--gap-ln);
+        justify-self: start;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        gap: var(--gap-ln);
+    }
+}
