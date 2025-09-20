@@ -1,4 +1,35 @@
 <section class="hero section">
+  <picture>
+    <source
+      srcset="
+        ../img/hero/_@2x-min.hero.desck.webp 2x,
+        ../img/hero/_@1x-min.hero.desck.webp 1x
+      "
+      media="(min-width: 1440px)"
+      type="image/webp"
+    />
+    <source
+      srcset="
+        ../img/hero/_@2x-min.hero.tab.webp 2x,
+        ../img/hero/_@1x-min.hero.tab.webp 1x
+      "
+      media="(min-width: 768px)"
+      type="image/webp"
+    />
+    <source
+      srcset="
+        ../img/hero/_@2x-min.hero.mob.webp 2x,
+        ../img/hero/_@1x-min.hero.mob.webp 1x
+      "
+      type="image/webp"
+    />
+    <img
+      src="../img/hero/_@1x-min.hero.mob.webp"
+      alt="Hero image"
+      class="hero-img"
+    />
+  </picture>
+
   <div class="container hero-container">
     <h1 class="hero-title">
       Кожне життя має значення. Знайди свого вірного друга.
