@@ -1,270 +1,226 @@
-/* =========================
-   Хатинка Лапок — Header CSS (pixel-perfect)
-   ========================= */
-
-/* ---- TOKENS (як у макеті) ---- */
-:root {
-    --bg: #F6F5F3;
-    --line: #E6E4DE;
-
-    --text: #1E1E1E;
-    /* логотип */
-    --muted: #2F2F2F;
-    /* лінки */
-
-    --brand: #6A4E2F;
-    /* кнопка */
-    --brand-700: #5B4127;
-
-    --ff: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-
-    --header-h: 64px;
-
-    --logo-w: 40px;
-    --logo-h: 40px;
-    --logo-fs: 18px;
-
-    --gap-ln: 32px;
-    /* між пунктами меню */
-    --gap-logo-nav: 48px;
-    /* між логотипом і меню */
-
-    --btn-radius: 10px;
-    --btn-px: 24px;
-    --btn-py: 10px;
-
-    --container-max: 1296px;
-    --container-pad: 72px;
+.site-header {
+    --paper: #FFFCF7;
+    --ink: #1E1B16;
+    --ink-soft: #2C231B;
+    --cta: #8B7358;
+    --cta-hover: #7A654D;
+    --stroke: #E3DED6;
+    --radius: 12px
 }
 
-/* ---- BASE ---- */
-.header {
-    background: var(--bg);
-    border-bottom: 1px solid var(--line);
-    padding: 12px 0;
-}
-
-.container {
-    margin: 0 auto;
-    padding: 0 20px;
-    /* моб/таб */
-    min-height: var(--header-h);
+.site-header .header-row {
     display: flex;
-    /* <1440px */
     align-items: center;
-    justify-content: space-between;
     gap: 16px;
+    min-height: 64px
 }
 
-/* LOGO */
-.logo {
+.site-header .brand {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: var(--text);
     text-decoration: none;
+    color: var(--ink-soft)
 }
 
-.logo-img {
-    width: var(--logo-w);
-    height: var(--logo-h);
-    object-fit: contain;
-    display: block;
-    /* фікс «базової лінії» у <img> */
+.site-header .brand-text {
+    display: grid;
+    line-height: 1
 }
 
-.logo-text {
-    font: 700 var(--logo-fs)/1.1 var(--ff);
-    letter-spacing: .1px;
+.site-header .brand-line1 {
+    font-weight: 700;
+    font-size: 20px
 }
 
-/* NAV */
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.site-header .brand-line2 {
+    font-weight: 700;
+    font-size: 18px
 }
 
-.nav-list {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-list a {
-    color: var(--muted);
-    text-decoration: none;
-    font: 500 14px/1 var(--ff);
-    transition: color .2s ease;
-}
-
-.nav-list a:hover,
-.nav-list a:focus-visible {
-    color: var(--brand);
-}
-
-/* BUTTON — без постійної зовнішньої рамки! лише внутрішній штрих + легка тінь */
-.btn {
+.site-header .nav-toggle {
+    margin-left: auto;
     border: 0;
-    border-radius: var(--btn-radius);
-    padding: var(--btn-py) var(--btn-px);
-    background: var(--brand);
-    color: #fff;
-    font: 600 15px/1 var(--ff);
-    cursor: pointer;
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, .55),
-        /* світлий інсет-штрих */
-        0 2px 0 rgba(0, 0, 0, .06);
-    /* м’яка тінь знизу */
-    transition: background-color .2s, transform .2s, box-shadow .2s;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    display: inline-grid;
+    place-items: center;
+    cursor: pointer
 }
 
-.btn:hover {
-    background: var(--brand-700);
-    transform: translateY(-1px);
-}
-
-.btn:focus-visible {
-    outline: 2px solid rgba(106, 78, 47, .28);
-    /* акуратний focus-ring */
-    outline-offset: 2px;
-}
-
-/* BURGER (<1440px) */
-.burger {
-    display: none;
-    width: 26px;
-    height: 20px;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-    box-shadow: none;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.burger span {
+.site-header .nav-toggle-bar {
+    width: 20px;
     height: 2px;
-    width: 100%;
-    border-radius: 2px;
-    background: #2F2F2F;
-    transition: transform .25s, opacity .25s;
+    background: var(--ink-soft);
+    display: block
 }
 
-/* OVERLAY */
-.overlay {
+.site-header .nav-toggle-bar+.nav-toggle-bar {
+    margin-top: 4px
+}
+
+.site-header .nav {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, .35);
-    z-index: 1000;
+    background: rgba(0, 0, 0, .25);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease
 }
 
-.overlay[hidden] {
-    display: none;
+.site-header .nav.is-open {
+    opacity: 1;
+    visibility: visible
 }
 
-/* =========================
-   MOBILE + TABLET (<1440px): off-canvas
-   ========================= */
-@media (max-width: 1439px) {
-    .burger {
-        display: flex;
+.site-header .nav-list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 72px 20px 24px;
+    background: var(--paper);
+    height: 100%;
+    width: min(520px, 92vw);
+    overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    border-radius: 12px
+}
+
+.site-header .nav-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    border: 0;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--ink-soft)
+}
+
+.site-header .nav-link {
+    display: block;
+    padding: 16px 8px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px
+}
+
+.site-header .nav-cta {
+    margin-top: 24px
+}
+
+.site-header .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1;
+    transition: transform .05s ease, background-color .15s ease
+}
+
+.site-header .btn-primary {
+    background: var(--cta);
+    color: #fff
+}
+
+.site-header .btn-primary:hover {
+    background: var(--cta-hover)
+}
+
+.site-header .btn-primary:active {
+    transform: translateY(1px)
+}
+
+@media (min-width:375px) {
+    .site-header .brand-line1 {
+        font-size: 22px
     }
 
-    .nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100dvh;
-        background: var(--bg);
+    .site-header .brand-line2 {
+        font-size: 20px
+    }
+}
+
+@media (min-width:768px) and (max-width:1439px) {
+    .site-header .header-row {
+        min-height: 72px
+    }
+
+    .site-header .nav-list {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        gap: 28px;
-        transition: right .3s ease-in-out;
-        z-index: 1001;
-    }
-
-    .nav.active {
-        right: 0;
-    }
-
-    .nav-list {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .btn {
-        padding: var(--btn-py) var(--btn-px);
-        font-size: 15px;
-    }
-
-    /* burger → close */
-    .burger.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .burger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .burger.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-}
-
-/* вузькі мобілки */
-@media (max-width: 374px) {
-    .container {
-        padding: 0 16px;
-    }
-
-    .btn {
-        padding: 9px 20px;
-        font-size: 14px;
-    }
-}
-
-/* =========================
-   DESKTOP (≥1440px) — точне позиціювання як у макеті
-   ========================= */
-@media (min-width: 1440px) {
-    .container {
-        max-width: var(--container-max);
-        padding: 0 var(--container-pad);
-        min-height: var(--header-h);
-        display: grid;
-        /* logo | nav | btn */
-        grid-template-columns: auto 1fr auto;
-        column-gap: var(--gap-logo-nav);
-        align-items: center;
-    }
-
-    .burger {
-        display: none;
-    }
-
-    .nav {
-        position: static;
-        background: transparent;
+        gap: 24px;
+        padding: 72px 32px 32px;
         height: auto;
-        gap: var(--gap-ln);
-        justify-self: start;
+        max-height: calc(100dvh - 160px);
+        margin: 48px auto 0
     }
 
-    .nav-list {
-        flex-direction: row;
-        gap: var(--gap-ln);
+    .site-header .nav-link {
+        text-align: center;
+        padding: 0;
+        font-size: 14px
+    }
+
+    .site-header .nav-cta {
+        margin-top: 8px;
+        align-self: center
+    }
+}
+
+@media (min-width:1440px) {
+    .site-header {
+        border-bottom: 1px solid var(--stroke)
+    }
+
+    .site-header .header-row {
+        min-height: 84px
+    }
+
+    .site-header .nav-toggle,
+    .site-header .nav .nav-close {
+        display: none
+    }
+
+    .site-header .nav {
+        position: static;
+        inset: auto;
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+        flex: 1
+    }
+
+    .site-header .nav-list {
+        display: flex;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        margin: 0;
+        border-radius: 0
+    }
+
+    .site-header .nav-link {
+        font-size: 16px;
+        padding: 10px 20px;
+        text-align: left
+    }
+
+    .site-header .nav-cta {
+        margin-left: auto;
+        margin-top: 0
+    }
+
+    .site-header .btn-primary {
+        border-radius: 12px;
+        padding: 12px 22px
     }
 }
