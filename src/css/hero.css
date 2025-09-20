@@ -1,10 +1,49 @@
 .hero {
+  position: relative;
+  overflow: hidden;
+  height: 544px;
 }
-.section {
+
+@media only screen and (min-width: 1440px) {
+  .hero {
+    padding-top: 128px;
+    padding-bottom: 128px;
+    height: 900px;
+  }
 }
-.container {
+
+.hero picture,
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0 0 0 / 50%),
+    rgba(0 0 0 / 25%),
+    rgba(0 0 0 / 0%)
+  );
+  z-index: 1;
+}
+
 .hero-container {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 .hero-title {
   font-family: 'Open Sans', sans-serif;
@@ -16,15 +55,50 @@
 
   margin-bottom: 24px;
 }
+
+@media only screen and (min-width: 768px) {
+  .hero-title {
+    width: 622px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .hero-title {
+    font-size: 56px;
+  }
+}
+
 .hero-text {
   color: #fff;
   margin-bottom: 32px;
 }
+
+@media only screen and (min-width: 768px) {
+  .hero-text {
+    width: 512px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .hero-text {
+    font-size: 18px;
+  }
+}
+
 .hero-btn {
   padding: 12px 24px;
+
   width: 171px;
   height: 45px;
 
   font-size: 14px;
-  line-height: 1.5;
+  color: #fff;
+}
+
+@media only screen and (min-width: 1440px) {
+  .hero-btn {
+    font-size: 16px;
+    width: 189px;
+    height: 48px;
+  }
 }
