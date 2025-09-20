@@ -1,0 +1,110 @@
+.about-js {
+  background-image: linear-gradient(rgba(0 0 0 / 18%), rgba(0 0 0 / 63%)),
+    url(../img/about/mobile-photo/mobile1x-photo1.jpg);
+  padding: 0 20px 20px 20px;
+  display: flex;
+  align-items: end;
+  margin-top: 40px;
+  background-position: center;
+  background-size: cover;
+  height: 402px;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .about-js {
+    background-image: linear-gradient(rgba(0 0 0 / 18%), rgba(0 0 0 / 63%)),
+      url(../img/about/mobile-photo/mobile2x-photo1.jpg);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .about-js {
+    background-image: linear-gradient(rgba(0 0 0 / 18%), rgba(0 0 0 / 63%)),
+      url(../img/about/tablet-photo/tablet1x-photo1.jpg);
+    min-height: 404px;
+    padding: 0 124px 32px 32px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (min-resolution: 192dpi) {
+  .about-js {
+    background-image: linear-gradient(rgba(0 0 0 / 18%), rgba(0 0 0 / 63%)),
+      url(../img/about/tablet-photo/tablet2x-photo1.jpg);
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .about-js {
+    background-image: linear-gradient(rgba(0 0 0 / 18%), rgba(0 0 0 / 63%)),
+      url(../img/about/desktop-photo/desktop1x-photo1.jpg);
+    padding: 0 700px 64px 63px;
+    width: 1312px;
+    height: 753px;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+  .about-js {
+    background-image: linear-gradient(rgba(0 0 0 / 18%), rgba(0 0 0 / 63%)),
+      url(../img/about/desktop-photo/desktop2x-photo1.jpg);
+  }
+}
+
+.section-about {
+  max-height: 616px;
+}
+
+@media only screen and (min-width: 768px) {
+  .section-about {
+    max-height: 539px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .section-about {
+    width: 1312px;
+    height: 927px;
+  }
+}
+
+.about-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color);
+}
+
+@media only screen and (min-width: 1440px) {
+  .about-title {
+    font-size: 48px;
+  }
+}
+
+.about-text {
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--background-color);
+  width: 295px;
+  display: flex;
+}
+
+@media only screen and (min-width: 768px) {
+  .about-text {
+    width: 548px;
+    height: 72px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .about-text {
+    font-size: 18px;
+    width: 548px;
+    height: 108px;
+  }
+}
