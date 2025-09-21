@@ -1,9 +1,9 @@
 const loadeEl = document.querySelector('.loader');
 
 export function showLoader() {
-  loadeEl.classList.remove(is - hiden);
+  loadeEl.classList.remove('is-hidden');
 }
 
 export function hideLoader() {
-  loadeEl.classList.add(is - hiden);
+  loadeEl.classList.add('is-hidden');
 }
