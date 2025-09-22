@@ -4,6 +4,7 @@
   height: 544px;
 
   width: 100%;
+  min-height: 100vh;
 
   background-image: image-set(
     url('../img/hero/hero-mob-1x.webp') 1x,
