@@ -7,3 +7,4 @@
 function getAnimalsList(params) {}
 function getCategories(params) {}
 function postOrders(params) {}
+function getFeedbacks(params) {}
