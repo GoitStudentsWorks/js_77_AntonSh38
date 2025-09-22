@@ -239,3 +239,7 @@ body {
     inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
   background-color: #eee9e3;
 }
+
+.hide-pets-btn {
+  display: none;
+}
