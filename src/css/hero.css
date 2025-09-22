@@ -3,6 +3,8 @@
   overflow: hidden;
   height: 544px;
 
+  width: 100%;
+
   background-image: image-set(
     url('../img/hero/hero-mob-1x.webp') 1x,
     url('../img/hero/hero-mob-2x.webp') 2x
