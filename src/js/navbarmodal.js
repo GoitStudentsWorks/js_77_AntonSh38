@@ -1,37 +1,33 @@
-const mobileMenu = document.getElementById('mobileMenu');
-const menuBtn = document.querySelector('.mobile-menu-btn');
-const closeBtn = document.getElementById('menuCloseBtn');
+document.addEventListener('DOMContentLoaded', () => {
+  const openBtn = document.querySelector('.mobile-menu-btn');
+  const closeBtn = document.querySelector('.mobile-menu-close');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.add('active');
-});
-
-closeBtn.addEventListener('click', () => {
-  mobileMenu.classList.remove('active');
-});
-
-const links = document.querySelectorAll('.nav-link');
-
-links.forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    links.forEach(l => l.classList.remove('active'));
-
-    this.classList.add('active');
+  openBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // блокуємо скрол фону
   });
-});
 
-// Button get friend
-document.querySelectorAll('.mobile-nav-btn, .header-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const animalsSection = document.querySelector('#animals');
-    if (animalsSection) {
-      animalsSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
+  closeBtn.addEventListener('click', () => {
     mobileMenu.classList.remove('active');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  });
+
+  mobileMenu.addEventListener('click', e => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
   });
 });
