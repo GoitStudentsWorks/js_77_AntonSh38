@@ -5,12 +5,11 @@ const petsCardList = document.querySelector('.pets-card-list');
 const petsBtnMoreEl = document.querySelector('.pets-btn-more');
 
 let page = 1;
-let limit = 8;
+let limit = window.innerWidth < 1440 ? 8 : 9;
 let category = null;
 let total = 0;
 
 getCategories().then(categories => {
-  console.log(categories);
   const markupCategories = categories
     .map(
       category =>
@@ -20,6 +19,8 @@ getCategories().then(categories => {
 
   petsNavEl.insertAdjacentHTML('beforeend', markupCategories);
 });
+
+loadAnimals();
 
 petsNavEl.addEventListener('click', event => {
   if (event.target.nodeName !== 'LI') {
@@ -38,18 +39,26 @@ petsNavEl.addEventListener('click', event => {
   loadAnimals();
 });
 
-loadAnimals();
-
 petsBtnMoreEl.addEventListener('click', () => {
   page += 1;
   loadAnimals();
+  petsBtnMoreEl.blur();
 });
 
 function loadAnimals() {
   getAnimalsList(page, limit, category).then(response => {
     renderPetsList(response.animals);
-    total = response.total;
+    total = response.totalItems;
+    togglePetsBtn();
   });
+}
+
+function togglePetsBtn() {
+  if (total <= page * limit) {
+    petsBtnMoreEl.classList.add('hide-pets-btn');
+  } else {
+    petsBtnMoreEl.classList.remove('hide-pets-btn');
+  }
 }
 
 function renderPetsList(pets) {
