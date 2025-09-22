@@ -1,7 +1,6 @@
 .hero {
   position: relative;
   overflow: hidden;
-  /* object-fit: cover; */
   height: 544px;
 
   background-image: linear-gradient(
