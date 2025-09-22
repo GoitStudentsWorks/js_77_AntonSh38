@@ -1,6 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
+  height: 544px;
 
   width: 100%;
   min-height: 100vh;
@@ -13,6 +14,11 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media only screen and (min-width: 768px) {
@@ -28,6 +34,7 @@
   .hero {
     padding-top: 128px;
     padding-bottom: 128px;
+    height: 900px;
 
     background-image: image-set(
       url('../img/hero/hero-desk-1x.webp') 1x,
