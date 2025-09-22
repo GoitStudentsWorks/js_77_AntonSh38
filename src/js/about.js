@@ -45,12 +45,14 @@ const aboutRender = data.map(({ id, text, imageUrl }) => {
       <source media="(min-width: 768px)" srcset="./img/about/tablet-photo/tablet1x-photo${id}.jpg 1x,
       ./img/about/tablet-photo/tablet2x-photo${id}.jpg 2x">
       <!-- мобілка -->
+      <source media="(min-width: 320px)" srcset="./img/about/mobile-photo/mobile1x-photo${id}.jpg 1x,
+       ./img/about/mobile-photo/mobile2x-photo${id}.jpg 2x">
       <img src="${imageUrl}" alt="about" class="about-img">
     </picture>
     <div class="about-overlay qwe">
       <p class="about-id">${text}</p>
     </div>
-  </div>
+  </div>  
   `;
 });
 
