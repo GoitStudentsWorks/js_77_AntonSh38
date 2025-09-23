@@ -176,3 +176,18 @@ body .basicLightbox {
   height: 24px;
   width: 24px;
 }
+
+.modal-pet-btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal-pet-svg {
+  stroke: #000;
+  fill: none;
+}
