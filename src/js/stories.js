@@ -50,12 +50,12 @@ function renderStars() {
     try {
       new RateYo(el, {
         rating: rate,
-        starWidth: '24px',
+        starWidth: '21px',
         halfStar: true,
         precision: 2,
         readOnly: true,
         normalFill: '#E0E0E0',
-        ratedFill: '#F6C200',
+        ratedFill: '#c3b49d;',
         spacing: '6px',
       });
 
