@@ -1,0 +1,196 @@
+.backdrop-order {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Вікно модалки */
+.modal-order {
+  background: #f6f4f1;
+  border-radius: 8px;
+  padding: 64px 20px;
+  width: 335px;
+  height: 763px;
+  max-width: 768px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Кнопка закриття */
+.modal-order-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal-order-close svg {
+  stroke: #000;
+  fill: none;
+}
+
+/* Заголовок */
+.modal-order-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #02060a;
+  margin: 0 0 48px;
+}
+
+/* Лейбли */
+.modal-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+/* Інпути */
+.modal-input,
+.modal-textarea {
+  border-radius: 12px;
+  border: none;
+  padding: 8px 12px;
+  width: 295px;
+  height: 37px;
+  background-color: rgba(2, 6, 10, 0.05);
+}
+
+/* Textarea */
+.modal-textarea {
+  resize: none;
+  min-height: 100px;
+  border-radius: 12px;
+  padding: 12px;
+  width: 295px;
+  height: 180px;
+}
+
+/* Кнопка */
+.modal-submit {
+  border: 1px solid #88765c;
+  border-radius: 8px;
+  padding: 12px 24px;
+  width: 295px;
+  height: 45px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #88765c;
+  transition: background-color 0.3s ease;
+}
+
+.modal-submit:hover {
+  background-color: #5c452b;
+}
+
+.modal-label-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #02060a;
+  margin-bottom: 8px;
+}
+
+/* ===== Планшет (від 768px) ===== */
+@media (min-width: 768px) {
+  .modal-order {
+    border-radius: 8px;
+    padding: 64px 32px;
+    width: 677px;
+    height: auto;
+    max-width: 768px;
+  }
+
+  .modal-order-title {
+    font-size: 36px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .modal-label {
+    margin-bottom: 24px; /* трохи більше відступ */
+  }
+
+  .modal-input,
+  .modal-textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .modal-textarea {
+    min-height: 140px;
+  }
+
+  .modal-submit {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+/* ===== Десктоп (від 1158px) ===== */
+@media (min-width: 1158px) {
+  .modal-order-title {
+    font-size: 48px;
+  }
+
+  .modal-label {
+    margin-bottom: 32px;
+  }
+
+  .modal-label-text {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .modal-input,
+  .modal-textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 16px 18px;
+  }
+
+  .modal-textarea {
+    min-height: 160px;
+  }
+
+  /* Кнопка */
+  .modal-submit {
+    width: 295px; /* зберігаємо мобільний розмір */
+    margin: 0 auto; /* центруємо */
+    display: block;
+  }
+}
+
+.error {
+  border: 2px solid red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}

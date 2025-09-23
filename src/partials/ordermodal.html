@@ -1,12 +1,16 @@
 <div class="backdrop-order">
   <div class="modal-order">
-    <button class="modal-order-close"></button>
+    <button class="modal-order-close">
+      <svg class="footer-close-icon" width="24" height="24">
+        <use href="../img/sprite.svg#icon-icon-close"></use>
+      </svg>
+    </button>
 
     <h2 class="modal-order-title">Залишіть заявку на знайомство</h2>
 
     <form class="modal-form">
       <label class="modal-label">
-        Ім&#39;я*
+        <span class="modal-label-text">Ім&#39;я*</span>
         <input
           type="text"
           name="name"
@@ -17,7 +21,7 @@
       </label>
 
       <label class="modal-label">
-        Телефон*
+        <span class="modal-label-text">Телефон*</span>
         <input
           type="tel"
           name="phone"
@@ -28,7 +32,7 @@
       </label>
 
       <label class="modal-label">
-        Коментар
+        <span class="modal-label-text">Коментар</span>
         <textarea
           name="comment"
           placeholder="Напишіть ваш коментар"
