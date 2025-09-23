@@ -17,44 +17,43 @@ petsCardList.addEventListener('click', event => {
   const instance = basicLightbox.create(
     `
     <div class="pets-modal modal">
-    
         <div class="pets-container-modal modal-container">
-        <div><button type="button" class="modal-pet-btn-close">
-        <svg class="modal-pet-svg" height="24" width="24"><use href="./public/icon/sprite.svg#icon-icon-close"></use>
-        </svg>
-        </button>
-        </div>
-       
-            <div class="pets-wrapper-modal">
-                <img src="${animal.image}" class="pets-icons-modal" alt="${animal.shortDescription}"/>
-            </div>
-            <div class="pets-wrapper-modal">
-                <div class="modal-pet-info">
-                    <span class="modal-pet-info-species">${animal.species}</span>
-                    <span class="modal-pet-info-name">${animal.name}</span>
-                    <div class="modal-pet-info-special-group">
-                        <span>${animal.age}</span>
-                        <span>${animal.gender}</span>
-                    </div>
-                </div>
-
-                <div class="modal-pet-description">
-                    <div class="modal-pet-description-item">
-                        <span class="modal-pet-title">Опис:</span>
-                        <p class="modal-pet-text">${animal.description}</p>
-                    </div>
-                    <div class="modal-pet-description-item">
-                        <span class="modal-pet-title">Здоров’я:</span>
-                        <p class="modal-pet-text">${animal.healthStatus}</p>
-                    </div>
-                    <div class="modal-pet-description-item">
-                        <span class="modal-pet-title">Поведінка:</span>
-                        <p class="modal-pet-text">${animal.behavior}</p>
-                    </div>
-
-                    <button class="modal-pet-btn btnfirst" data-id="${animal._id}" type="button">Взяти додому</button>
+          <div>
+            <button type="button" class="modal-pet-btn-close">
+              <svg class="modal-pet-svg" height="24" width="24">
+                <use href="./icon/sprite.svg#icon-icon-close"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="pets-wrapper-modal">
+              <img src="${animal.image}" class="pets-icons-modal" alt="${animal.shortDescription}"/>
+          </div>
+          <div class="pets-wrapper-modal">
+            <div class="modal-pet-info">
+                <span class="modal-pet-info-species">${animal.species}</span>
+                <span class="modal-pet-info-name">${animal.name}</span>
+                <div class="modal-pet-info-special-group">
+                    <span>${animal.age}</span>
+                    <span>${animal.gender}</span>
                 </div>
             </div>
+            <div class="modal-pet-description">
+              <div class="modal-pet-description-item">
+                  <span class="modal-pet-title">Опис:</span>
+                  <p class="modal-pet-text">${animal.description}</p>
+              </div>
+              <div class="modal-pet-description-item">
+                  <span class="modal-pet-title">Здоров’я:</span>
+                  <p class="modal-pet-text">${animal.healthStatus}</p>
+              </div>
+              <div class="modal-pet-description-item">
+                  <span class="modal-pet-title">Поведінка:</span>
+                  <p class="modal-pet-text">${animal.behavior}</p>
+              </div>
+
+              <button class="modal-pet-btn btnfirst" data-id="${animal._id}" type="button">Взяти додому</button>
+            </div>
+          </div>
         </div>
     </div>
   `,
