@@ -36,6 +36,14 @@
 
 .swiper-story {
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+  display: block;
+
 }
 
 .swiper-wrapper-story {
@@ -89,12 +97,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
+ 
 
 .swiper-pagination-story {
   position: static !important;
   width: auto !important;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  
 }
 
 .swiper-pagination-story .swiper-pagination-bullet {
@@ -109,8 +122,13 @@
   border: none;
 }
 
-.swiper-pagination-story .swiper-pagination-bullet:last-child {
-  margin-right: 0;
+.swiper-pagination-story {
+  margin-right: auto;
+  
+}
+
+.navigation-buttons-story {
+  margin-left: auto;
 }
 
 .swiper-pagination-story .swiper-pagination-bullet:hover {
@@ -129,7 +147,7 @@
 
 .story-button-prev,
 .story-button-next {
-  border: 1px solid 1px solid var(--btnfirst-hover-bg);
+  border: 1px solid var(--btnfirst-hover-bg);
   border-radius: 8px;
   width: 48px;
   height: 48px;

@@ -4,6 +4,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { getFeedbacks } from './stories.api';
+import { showLoader, hideLoader } from './loader';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 import 'rateyo/lib/cjs/rateyo.css';
 import RateYo from 'rateyo';
@@ -16,7 +19,7 @@ function creatStoriesCard(events) {
     .map(({ rate, description, author }) => {
       return `<div class="swiper-slide swiper-slide-story" role="listitem">
                 <div class="story-card">
-                 <div class="story-rating" data-rate="${rate}"></div>
+
                   <p class="story-review">${description}</p>
                   <p class="story-author">${author}</p>
                 </div>
@@ -85,7 +88,6 @@ function initSwiper() {
       el: '.swiper-pagination-story',
       clickable: true,
       dynamicBullets: true,
-      dynamicMainBullets: 5,
     },
 
     breakpoints: {
@@ -97,16 +99,44 @@ function initSwiper() {
       },
     },
   });
-
   return mySwiper;
+}
+function showError(message) {
+  iziToast.error({
+    title: 'Помилка',
+    message: message,
+    position: 'topRight',
+    timeout: 5000,
+    closeOnClick: true,
+    pauseOnHover: true,
+    progressBar: true,
+  });
 }
 
 async function initStories() {
-  const data = await getFeedbacks();
-  if (data && data.feedbacks) {
-    creatStoriesCard(data.feedbacks);
-    renderStars();
-    initSwiper();
+  try {
+    showLoader();
+
+    const data = await getFeedbacks();
+
+    if (data && data.feedbacks && data.feedbacks.length > 0) {
+      if (data.feedbacks.length < 3) {
+        showError('Недостатньо відгуків для відображення');
+        return;
+      }
+
+      creatStoriesCard(data.feedbacks);
+       renderStars();
+      initSwiper();
+    } else {
+      showError('Не вдалося завантажити відгуки');
+    }
+  } catch (error) {
+    showError('Сталася помилка при завантаженні відгуків');
+  } finally {
+    hideLoader();
+
   }
 }
+
 initStories();
