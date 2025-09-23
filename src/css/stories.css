@@ -36,6 +36,7 @@
 
 .swiper-story {
   position: relative;
+ 
 }
 
 .swiper-wrapper-story {
@@ -160,13 +161,8 @@
   opacity: 0.5;
 }
 
-.story-button-icon {
-  fill: currentColor;
-  stroke: currentColor;
+.swiper-pagination-bullets-dynamic {
+  left: initial !important;
+  transform: none !important;
 }
 
-
-.story-card .story-rating i,
-.story-card .story-rating span {
-  color: #332c22 !important;
-}
