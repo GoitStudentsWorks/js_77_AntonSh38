@@ -3,3 +3,4 @@ import './js/about.js';
 import './js/faq.js';
 import './js/stories.js';
 import './js/ordermodal.js';
+import './js/navbarmodal.js';

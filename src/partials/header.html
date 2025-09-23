@@ -1,50 +1,58 @@
 <header class="header">
-  <div class="container">
-    <a href="/" class="logo" aria-label="Хатинка Лапок — на головну">
-      <span class="logo-mark" aria-hidden="true">
-        <img src="./img/header/logo.png" alt="" />
-      </span>
-      <span class="logo-text">
-        <span class="logo-line1">Хатинка</span>
-        <span class="logo-line2">Лапок</span>
-      </span>
-    </a>
+  <div class="container header-container">
+    <div class="logo-nav">
+      <a class="logo" href="../index.html">
+        <svg width="52.61" height="51.73" aria-label="logo">
+          <use href="./img/sprite.svg#icon-icon-paw"></use>
+        </svg>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Знайди друга</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Про нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Часті запитання</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Історії успіху</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-    <button
-      class="nav-toggle"
-      aria-expanded="false"
-      aria-controls="site-nav"
-      aria-label="Відкрити меню"
-    >
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
+    <button class="mobile-menu-btn" type="button" aria-label="Open mobile menu">
+      <svg class="mobile-menu-icon" width="24" height="24">
+        <use href="./img/sprite.svg#icon-icon-menu"></use>
+      </svg>
     </button>
-
-    <nav id="site-nav" class="nav" aria-label="Головне меню">
-      <ul class="nav-list">
-        <!-- шапка всередині модалки -->
-        <div class="nav-head">
-          <a href="/" class="logo" aria-label="Хатинка Лапок — на головну">
-            <span class="logo-mark" aria-hidden="true">
-              <img src="./img/header/logo.png" alt="" />
-            </span>
-            <span class="logo-text">
-              <span class="logo-line1">Хатинка</span>
-              <span class="logo-line2">Лапок</span>
-            </span>
-          </a>
-          <button class="nav-close" aria-label="Закрити меню">✕</button>
-        </div>
-
+    <button class="header-btn">Взяти друга</button>
+  </div>
+  <!-- Modal window -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <a class="logo" href="../index.html">
+        <svg width="52.61" height="51.73" aria-label="logo">
+          <use href="./img#sprite.svg#icon-icon-paw"></use>
+        </svg>
+      </a>
+      <button class="mobile-menu-close" id="" aria-label="Закрити меню">
+        <svg class="mobile-menu-icon" width="24" height="24">
+          <use href="./img/sprite.svg#icon-icon-close"></use>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <ul class="mobile-nav-list">
         <li><a class="nav-link" href="#">Знайди друга</a></li>
         <li><a class="nav-link" href="#">Про нас</a></li>
         <li><a class="nav-link" href="#">Часті запитання</a></li>
         <li><a class="nav-link" href="#">Історії успіху</a></li>
-        <li class="nav-cta">
-          <a class="btn btn-primary" href="#">Взяти друга</a>
-        </li>
       </ul>
     </nav>
+    <button class="header-btn mobile-nav-btn">Взяти друга</button>
   </div>
 </header>
