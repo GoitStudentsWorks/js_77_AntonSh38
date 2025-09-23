@@ -1,0 +1,278 @@
+.header {
+    --paper: #FFFCF7;
+    --ink: #1E1B16;
+    --ink-soft: #2C231B;
+    --cta: #8B7358;
+    --cta-hover: #7A654D;
+    background: #F6F4F1
+}
+
+.header>.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 375px;
+    height: 64px;
+    padding: 0 12px 0 20px
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink-soft)
+}
+
+.logo-mark img {
+    display: block;
+    width: 36px;
+    height: 36px;
+    object-fit: contain
+}
+
+.logo-text {
+    display: grid;
+    line-height: 1
+}
+
+.logo-line1 {
+    font-weight: 700;
+    font-size: 20px
+}
+
+.logo-line2 {
+    font-weight: 700;
+    font-size: 18px
+}
+
+.nav-toggle {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: #2C231B;
+    position: relative;
+    z-index: 3
+}
+
+.nav-toggle-bar {
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    display: block;
+    transform: translateZ(0)
+}
+
+.nav {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .25);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease
+}
+
+.nav.is-open {
+    opacity: 1;
+    visibility: visible
+}
+
+.nav-list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    height: 100%;
+    width: min(768px, 92vw);
+    overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    border-radius: 12px
+}
+
+/* шапка всередині модалки */
+.nav-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    height: 64px;
+    padding: 0 20px 0 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, .06)
+}
+
+.nav-head .logo-mark img {
+    width: 32px;
+    height: 32px
+}
+
+.nav-close {
+    border: 0;
+    background: transparent;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--ink-soft)
+}
+
+.nav-link {
+    display: block;
+    padding: 16px 8px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px
+}
+
+.nav-cta {
+    margin-top: 16px;
+    padding: 0 20px 24px
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1;
+    transition: transform .05s ease, background-color .15s ease
+}
+
+.btn-primary {
+    background: var(--cta);
+    color: #fff
+}
+
+.btn-primary:hover {
+    background: var(--cta-hover)
+}
+
+.btn-primary:active {
+    transform: translateY(1px)
+}
+
+@media (min-width:375px) {
+    .logo-line1 {
+        font-size: 22px
+    }
+
+    .logo-line2 {
+        font-size: 20px
+    }
+}
+
+/* TABLET: панель 768px, елементи по центру як на макеті */
+@media (min-width:768px) and (max-width:1439px) {
+    .header>.container {
+        width: 768px;
+        height: 64px;
+        padding: 0 32px;
+        gap: 32px
+    }
+
+    .nav-list {
+        width: 768px;
+        height: auto;
+        max-height: calc(100dvh - 96px);
+        margin: 48px auto;
+        padding-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-head {
+        width: 100%;
+        height: 64px;
+        padding: 0 32px
+    }
+
+    .nav-link {
+        padding: 16px 0;
+        text-align: center
+    }
+
+    .nav-cta {
+        margin-top: 8px;
+        align-self: center;
+        padding: 0 0 24px
+    }
+}
+
+/* DESKTOP: інлайн-навігація */
+@media (min-width:1440px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
+
+    .header>.container {
+        width: 1440px;
+        height: 72px;
+        padding: 0 32px;
+        gap: 32px
+    }
+
+    .nav-toggle,
+    .nav .nav-close {
+        display: none
+    }
+
+    .nav {
+        position: static;
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+        flex: 1;
+        min-width: 0
+    }
+
+    .nav-list {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        height: auto;
+        width: 100%;
+        padding: 0;
+        margin: 0
+    }
+
+    .nav-head {
+        display: none
+    }
+
+    .nav-link {
+        font-size: 16px;
+        padding: 10px 0;
+        text-align: left
+    }
+
+    .nav-cta {
+        margin-left: auto;
+        margin-top: 0
+    }
+
+    .btn-primary {
+        border-radius: 12px;
+        padding: 12px 22px
+    }
+}
