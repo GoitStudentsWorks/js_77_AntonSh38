@@ -58,7 +58,7 @@ function renderStars() {
         precision: 2,
         readOnly: true,
         normalFill: '#E0E0E0',
-        ratedFill: '#e8c38bff;',
+        ratedFill: '#F6C200;',
         spacing: '6px',
       });
 
@@ -126,7 +126,7 @@ async function initStories() {
       }
 
       creatStoriesCard(data.feedbacks);
-       renderStars();
+      renderStars();
       initSwiper();
     } else {
       showError('Не вдалося завантажити відгуки');
@@ -135,7 +135,6 @@ async function initStories() {
     showError('Сталася помилка при завантаженні відгуків');
   } finally {
     hideLoader();
-
   }
 }
 
