@@ -1,5 +1,9 @@
 import { getCategories, getAnimalsList } from './pets.api';
 import './petmodal';
+import { showLoader } from './loader';
+import { hideLoader } from './loader';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const petsNavEl = document.querySelector('.pets-nav');
 const petsCardList = document.querySelector('.pets-card-list');
@@ -10,17 +14,7 @@ let limit = window.innerWidth < 1440 ? 8 : 9;
 let category = null;
 let total = 0;
 
-getCategories().then(categories => {
-  const markupCategories = categories
-    .map(
-      category =>
-        `<li class="pets-nav-item" data-id="${category._id}">${category.name}</li>`
-    )
-    .join('');
-
-  petsNavEl.insertAdjacentHTML('beforeend', markupCategories);
-});
-
+loadCategories();
 loadAnimals();
 
 petsNavEl.addEventListener('click', event => {
@@ -46,12 +40,45 @@ petsBtnMoreEl.addEventListener('click', () => {
   petsBtnMoreEl.blur();
 });
 
-function loadAnimals() {
-  getAnimalsList(page, limit, category).then(response => {
+async function loadCategories() {
+  try {
+    const categories = await getCategories();
+    const markupCategories = categories
+      .map(
+        category =>
+          `<li class="pets-nav-item" data-id="${category._id}">${category.name}</li>`
+      )
+      .join('');
+
+    petsNavEl.insertAdjacentHTML('beforeend', markupCategories);
+  } catch (error) {
+    iziToast.error({
+      title: '',
+      message:
+        'Наші пухнастики сперечаються, хто буде в якій категорії 😸. Повернемо їх незабаром!',
+      position: 'topRight',
+    });
+  }
+}
+
+async function loadAnimals() {
+  try {
+    showLoader();
+    const response = await getAnimalsList(page, limit, category);
+
     renderPetsList(response.animals);
     total = response.totalItems;
     togglePetsBtn();
-  });
+  } catch (error) {
+    iziToast.error({
+      title: '',
+      message:
+        'Ой! Наші пухнастики сховалися 🐾. Спробуйте оновити сторінку або поверніться пізніше.',
+      position: 'topRight',
+    });
+  } finally {
+    hideLoader();
+  }
 }
 
 function togglePetsBtn() {

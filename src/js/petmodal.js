@@ -2,6 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
 const petsCardList = document.querySelector('.pets-card-list');
+
 petsCardList.addEventListener('click', event => {
   if (event.target.nodeName !== 'BUTTON') {
     return;
@@ -18,7 +19,11 @@ petsCardList.addEventListener('click', event => {
     <div class="pets-modal modal">
     
         <div class="pets-container-modal modal-container">
-        
+        <div><button type="button" class="modal-pet-btn-close">
+        <svg class="modal-pet-svg" height="24" width="24"><use href="./public/icon/sprite.svg#icon-icon-close"></use>
+        </svg>
+        </button>
+        </div>
        
             <div class="pets-wrapper-modal">
                 <img src="${animal.image}" class="pets-icons-modal" alt="${animal.shortDescription}"/>
@@ -47,21 +52,36 @@ petsCardList.addEventListener('click', event => {
                         <p class="modal-pet-text">${animal.behavior}</p>
                     </div>
 
-                    <button class="modal-pet-btn btnfirst" type="button">Взяти додому</button>
+                    <button class="modal-pet-btn btnfirst" data-id="${animal._id}" type="button">Взяти додому</button>
                 </div>
             </div>
         </div>
     </div>
   `,
     {
-      onShow: () => {
+      closable: true,
+      onShow: instance => {
+        instance
+          .element()
+          .querySelector('.modal-pet-btn-close')
+          .addEventListener('click', () => instance.close());
+
         document.body.style.overflow = 'hidden';
+
+        document.addEventListener('keydown', onEscClose);
       },
       onClose: () => {
         document.body.style.overflow = '';
+        document.removeEventListener('keydown', onEscClose);
       },
     }
   );
+
+  function onEscClose(e) {
+    if (e.key === 'Escape') {
+      instance.close();
+    }
+  }
 
   instance.show();
 });
