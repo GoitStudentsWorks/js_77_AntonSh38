@@ -1,4 +1,5 @@
 import { getCategories, getAnimalsList } from './pets.api';
+import './petmodal';
 
 const petsNavEl = document.querySelector('.pets-nav');
 const petsCardList = document.querySelector('.pets-card-list');
@@ -65,7 +66,9 @@ function renderPetsList(pets) {
   const markupPets = pets
     .map(
       pet => `
-        <li class="pets-card-items">
+        <li class="pets-card-items" data-animal="${encodeURIComponent(
+          JSON.stringify(pet)
+        )}">
         <div class="pets-card-top">
         <img src="${pet.image}" class="pets-icons" alt="${
         pet.shortDescription
