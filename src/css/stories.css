@@ -36,7 +36,6 @@
 
 .swiper-story {
   position: relative;
- 
 }
 
 .swiper-wrapper-story {
@@ -55,6 +54,12 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.story-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
 .story-review {
@@ -154,8 +159,7 @@
 .story-button-prev:disabled,
 .story-button-next:disabled,
 .story-button-prev.swiper-button-disabled,
-.story-button-next.swiper-button-disabled 
-{
+.story-button-next.swiper-button-disabled {
   border-color: var(--background-color);
   cursor: not-allowed;
   opacity: 0.5;
@@ -165,4 +169,3 @@
   left: initial !important;
   transform: none !important;
 }
-
