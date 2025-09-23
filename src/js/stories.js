@@ -8,6 +8,9 @@ import { showLoader, hideLoader } from './loader';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+import 'rateyo/lib/cjs/rateyo.css';
+import RateYo from 'rateyo';
+
 const cardStoryEl = document.querySelector('.swiper-wrapper-story');
 let mySwiper = null;
 
@@ -16,7 +19,7 @@ function creatStoriesCard(events) {
     .map(({ rate, description, author }) => {
       return `<div class="swiper-slide swiper-slide-story" role="listitem">
                 <div class="story-card">
-                 <div class="story-rating"></div>
+
                   <p class="story-review">${description}</p>
                   <p class="story-author">${author}</p>
                 </div>
@@ -25,6 +28,46 @@ function creatStoriesCard(events) {
     .join('');
 
   cardStoryEl.innerHTML = markup;
+}
+
+function clamp(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+}
+
+function renderStars() {
+  const ratings = document.querySelectorAll('.story-rating');
+
+  if (!ratings || ratings.length === 0) return;
+
+  ratings.forEach(el => {
+    if (el.classList.contains('jq-ry-container')) return;
+
+    const raw = el.dataset.rate;
+
+    let rate = Number(String(raw).replace(',', '.'));
+
+    if (Number.isNaN(rate)) rate = 0;
+    if (rate < 0) rate = 0;
+    if (rate > 5) rate = 5;
+
+    try {
+      new RateYo(el, {
+        rating: rate,
+        starWidth: '21px',
+        halfStar: true,
+        precision: 2,
+        readOnly: true,
+        normalFill: '#E0E0E0',
+        ratedFill: '#e8c38bff;',
+        spacing: '6px',
+      });
+
+      el.setAttribute('role', 'img');
+      el.setAttribute('aria-label', `Рейтинг ${rate} з 5`);
+    } catch (err) {
+      console.error('❌ RateYo init failed', el, err);
+    }
+  });
 }
 
 function initSwiper() {
@@ -83,6 +126,7 @@ async function initStories() {
       }
 
       creatStoriesCard(data.feedbacks);
+       renderStars();
       initSwiper();
     } else {
       showError('Не вдалося завантажити відгуки');
@@ -91,6 +135,7 @@ async function initStories() {
     showError('Сталася помилка при завантаженні відгуків');
   } finally {
     hideLoader();
+
   }
 }
 
