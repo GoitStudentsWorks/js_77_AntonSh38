@@ -68,6 +68,18 @@ petsCardList.addEventListener('click', event => {
         document.body.style.overflow = 'hidden';
 
         document.addEventListener('keydown', onEscClose);
+
+        const takeHomeBtn = instance.element().querySelector('.modal-pet-btn');
+
+        takeHomeBtn.addEventListener('click', () => {
+          instance.close();
+
+          const orderModal = document.querySelector('.backdrop-order');
+          orderModal.style.display = 'flex';
+          document.body.classList.add('modal-open');
+
+          const form = orderModal.querySelector('.modal-form');
+        });
       },
       onClose: () => {
         document.body.style.overflow = '';
