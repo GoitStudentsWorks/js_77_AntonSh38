@@ -6,9 +6,9 @@ import 'swiper/css/pagination';
 import { getFeedbacks } from './stories.api';
 
 const cardStoryEl = document.querySelector('.swiper-wrapper-story');
-const swiperContainer = document.querySelector('.swiper-story');
-
 function creatStoriesCard(events) {
+  const cardStoryEl = document.querySelector('.swiper-wrapper-story');
+
   const markup = events
     .map(({ rate, description, author }) => {
       return `<div class="swiper-slide swiper-slide-story" role="listitem">
@@ -25,11 +25,6 @@ function creatStoriesCard(events) {
 }
 
 function initSwiper() {
-  if (!swiperContainer) {
-    console.error('Swiper container not found');
-    return;
-  }
-
   const swiper = new Swiper('.swiper-story', {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
@@ -53,21 +48,9 @@ function initSwiper() {
     breakpoints: {
       768: {
         slidesPerView: 2,
-        // spaceBetween: 24,
       },
       1440: {
         slidesPerView: 2,
-        // spaceBetween: 32,
-      },
-    },
-
-    on: {
-      init: function (swiper) {
-        updateNavButtons(swiper);
-        console.log('Swiper initialized');
-      },
-      slideChange: function (swiper) {
-        updateNavButtons(swiper);
       },
     },
   });
@@ -75,56 +58,11 @@ function initSwiper() {
   return swiper;
 }
 
-function updateNavButtons(swiper) {
-  const prevButton = document.querySelector('.story-button-prev');
-  const nextButton = document.querySelector('.story-button-next');
-
-  if (!prevButton || !nextButton) {
-    console.error('Navigation buttons not found');
-    return;
-  }
-
-  if (swiper.isBeginning) {
-    prevButton.disabled = true;
-    prevButton.classList.add('swiper-button-disabled');
-  } else {
-    prevButton.disabled = false;
-    prevButton.classList.remove('swiper-button-disabled');
-  }
-
-  if (swiper.isEnd) {
-    nextButton.disabled = true;
-    nextButton.classList.add('swiper-button-disabled');
-  } else {
-    nextButton.disabled = false;
-    nextButton.classList.remove('swiper-button-disabled');
-  }
-}
-
 async function initStories() {
-  try {
-    const data = await getFeedbacks();
-    if (data && data.feedbacks && data.feedbacks.length > 0) {
-      creatStoriesCard(data.feedbacks);
-
-      setTimeout(() => {
-        initSwiper();
-      }, 100);
-    } else {
-      console.error('No feedbacks data received');
-    }
-  } catch (error) {
-    console.error('Error loading feedbacks:', error);
-
-    creatStoriesCard(testData);
-    setTimeout(() => {
-      initSwiper();
-    }, 100);
+  const data = await getFeedbacks();
+  if (data && data.feedbacks) {
+    creatStoriesCard(data.feedbacks);
+    initSwiper();
   }
 }
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initStories);
-} else {
-  initStories();
-}
+initStories();

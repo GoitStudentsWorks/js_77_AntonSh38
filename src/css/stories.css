@@ -163,6 +163,10 @@
 .story-button-icon {
   fill: currentColor;
   stroke: currentColor;
-  width: 24px;
-  height: 24px;
+}
+
+
+.story-card .story-rating i,
+.story-card .story-rating span {
+  color: #332c22 !important;
 }
