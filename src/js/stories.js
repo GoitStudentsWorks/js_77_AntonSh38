@@ -19,7 +19,7 @@ function creatStoriesCard(events) {
     .map(({ rate, description, author }) => {
       return `<div class="swiper-slide swiper-slide-story" role="listitem">
                 <div class="story-card">
-
+                   <div class="story-rating" data-rate="${rate}"></div>
                   <p class="story-review">${description}</p>
                   <p class="story-author">${author}</p>
                 </div>
