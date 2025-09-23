@@ -59,16 +59,29 @@ petsCardList.addEventListener('click', event => {
     </div>
   `,
     {
-      onShow: () => {
-        instance.element().querySelector('.modal-pet-btn-close').onclick =
-          instance.close;
+      closable: true,
+      onShow: instance => {
+        instance
+          .element()
+          .querySelector('.modal-pet-btn-close')
+          .addEventListener('click', () => instance.close());
+
         document.body.style.overflow = 'hidden';
+
+        document.addEventListener('keydown', onEscClose);
       },
       onClose: () => {
         document.body.style.overflow = '';
+        document.removeEventListener('keydown', onEscClose);
       },
     }
   );
+
+  function onEscClose(e) {
+    if (e.key === 'Escape') {
+      instance.close();
+    }
+  }
 
   instance.show();
 });
