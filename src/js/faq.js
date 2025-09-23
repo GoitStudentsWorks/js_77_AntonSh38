@@ -20,20 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
         accordionItems.forEach(i => {
           const useEl = i.querySelector('svg use');
           if (useEl)
-            useEl.setAttribute(
-              'href',
-              './public/icon/sprite.svg#icon-icon-add'
-            );
+            useEl.setAttribute('href', './icon/sprite.svg#icon-icon-add');
           i.classList.remove('open');
         });
 
         if (!isOpen) {
           content.style.maxHeight = content.scrollHeight + 'px';
           if (iconUse)
-            iconUse.setAttribute(
-              'href',
-              './public/icon/sprite.svg#icon-icon-close'
-            );
+            iconUse.setAttribute('href', './icon/sprite.svg#icon-icon-close');
           item.classList.add('open');
         }
       });
