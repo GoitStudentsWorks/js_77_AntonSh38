@@ -6,14 +6,14 @@ import 'swiper/css/pagination';
 import { getFeedbacks } from './stories.api';
 
 const cardStoryEl = document.querySelector('.swiper-wrapper-story');
-function creatStoriesCard(events) {
-  const cardStoryEl = document.querySelector('.swiper-wrapper-story');
+let mySwiper = null;
 
+function creatStoriesCard(events) {
   const markup = events
     .map(({ rate, description, author }) => {
       return `<div class="swiper-slide swiper-slide-story" role="listitem">
                 <div class="story-card">
-                  <div class="story-rating">${rate}</div>
+                 <div class="story-rating">${rate}</div>
                   <p class="story-review">${description}</p>
                   <p class="story-author">${author}</p>
                 </div>
@@ -25,7 +25,7 @@ function creatStoriesCard(events) {
 }
 
 function initSwiper() {
-  const swiper = new Swiper('.swiper-story', {
+  mySwiper = new Swiper('.swiper-story', {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
     spaceBetween: 32,
@@ -55,7 +55,7 @@ function initSwiper() {
     },
   });
 
-  return swiper;
+  return mySwiper;
 }
 
 async function initStories() {

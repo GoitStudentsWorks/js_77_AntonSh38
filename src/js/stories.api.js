@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASE_URL = 'https://paw-hut.b.goit.study/api';
 axios.defaults.baseURL = BASE_URL;
 
-export async function getFeedbacks(page, limit) {
+export async function getFeedbacks() {
   try {
     const { data } = await axios.get('/feedbacks', {
       params: {
