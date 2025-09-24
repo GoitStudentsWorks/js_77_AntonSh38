@@ -75,7 +75,7 @@ petsCardList.addEventListener('click', event => {
 
         takeHomeBtn.addEventListener('click', () => {
           instance.close();
-          openOrderModal();
+          openOrderModal(animal._id);
         });
       },
       onClose: () => {
