@@ -1,5 +1,33 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import * as basicLightbox from 'basiclightbox';
+
+export function openOrderModal() {
+  const modalElement = document.querySelector('.backdrop-order').innerHTML;
+  const instance = basicLightbox.create(modalElement, {
+    onShow: instance => {
+      instance
+        .element()
+        .querySelector('.modal-order-close')
+        .addEventListener('click', () => instance.close());
+
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('keydown', onEscClose);
+    },
+    onClose: instance => {
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEscClose);
+    },
+  });
+
+  function onEscClose(e) {
+    if (e.key === 'Escape') {
+      instance.close();
+    }
+  }
+
+  instance.show();
+}
 
 const modal = document.querySelector('.backdrop-order');
 const closeBtn = document.querySelector('.modal-order-close');
