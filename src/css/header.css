@@ -15,7 +15,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding-top: 8px;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
   align-items: center;
 }
 @media only screen and (min-width: 768px) {
@@ -85,7 +85,7 @@
   .header-btn {
     display: flex;
     padding: 8px 20px;
-    width: 130px;
+    width: 132px;
     height: 40px;
     color: #fff;
     margin-left: auto;
