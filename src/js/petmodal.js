@@ -76,12 +76,6 @@ petsCardList.addEventListener('click', event => {
         takeHomeBtn.addEventListener('click', () => {
           instance.close();
           openOrderModal();
-
-          const orderModal = document.querySelector('.backdrop-order');
-          orderModal.style.display = 'flex';
-          document.body.classList.add('modal-open');
-
-          const form = orderModal.querySelector('.modal-form');
         });
       },
       onClose: () => {
