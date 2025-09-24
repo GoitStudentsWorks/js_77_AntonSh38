@@ -14,14 +14,17 @@
   justify-content: center;
   align-items: center;
   margin: 0 0 32px;
+  gap: 16px;
 }
 
 .footer-logo-icon {
   fill: #332c22;
 }
 
-.footer-logo p {
+.footer-logo {
   color: #332c22;
+  padding-top: 14px;
+  padding-bottom: 18px;
 }
 
 .footer-list {
@@ -68,24 +71,19 @@
 
 .line {
   border: 1px solid rgba(2, 6, 10, 0.15);
-  width: 100%;
-  max-width: 335px;
-  height: 0px;
-  margin: 0 auto 32px;
+
+  width: 335px;
 }
 
 .footer-text {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 400;
   font-size: 12px;
-  line-height: 150%;
-  color: #02060a;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 32px;
 }
 
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .footer {
     padding: 48px 32px;
     height: auto;
@@ -98,13 +96,13 @@
   }
 
   .line {
-    max-width: 704px;
+    width: 704px;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media only screen and (min-width: 1440px) {
   .footer {
-    padding: 80px 40px;
+    padding: 64px;
   }
 
   .footer-container {
@@ -123,7 +121,6 @@
   }
 
   .social-list {
-    gap: 32px;
     margin-bottom: 60px;
   }
 
@@ -132,6 +129,6 @@
   }
 
   .line {
-    max-width: 1312px;
+    width: 1312px;
   }
 }
