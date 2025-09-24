@@ -4,18 +4,22 @@
 
     <!-- Swiper -->
     <div class="swiper about-js">
-      <div class="swiper-wrapper"></div>
+      <div class="swiper-wrapper swiper-wrapper-about"></div>
 
-      <div class="controll-full-container">
-        <!-- пагінація -->
-        <div class="swiper-pagination customP"></div>
+      <div class="btn-container">
+        <button class="swiper-button-prev testL" type="button">
+          <svg class="story-button-icon" width="24" height="24">
+            <use href="./public/icon/sprite.svg#icon-back"></use>
+          </svg>
+        </button>
 
-        <!-- стрілки -->
-        <div class="controll-container">
-          <div class="swiper-button-prev testL"></div>
-          <div class="swiper-button-next testR"></div>
-        </div>
+        <button class="swiper-button-next testR" type="button">
+          <svg class="story-button-icon" width="24" height="24">
+            <use href="./public/icon/sprite.svg#icon-forward"></use>
+          </svg>
+        </button>
       </div>
+      <div class="swiper-pagination swiper-pagination-about customP"></div>
     </div>
   </div>
 </section>
