@@ -1,5 +1,5 @@
-body {
-  font-family: 'IBM Plex Sans', sans-serif;
+.pets-section {
+  padding-bottom: 32px;
 }
 
 .pets-title {
@@ -58,7 +58,6 @@ body {
 .pets-nav-item.active,
 .pets-nav-item:hover {
   background-color: var(--btnsecond-bg);
-  font-weight: 500;
 }
 
 .pets-card-top {
@@ -111,7 +110,7 @@ body {
 .pets-species {
   display: block;
   font-size: 10px;
-  color: var(--btnsecond-hover-color);
+
   padding-bottom: 4px;
   padding-top: 16px;
 }
@@ -128,7 +127,6 @@ body {
   font-size: 20px;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: var(--btnsecond-hover-color);
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 4px;
 }
@@ -152,14 +150,13 @@ body {
   font-weight: 600;
   font-size: 10px;
   background-color: rgba(2, 6, 10, 0.05);
-  margin-bottom: 10px;
+
   margin-right: 4px;
 }
 
 @media only screen and (min-width: 1440px) {
   .pets-filter-items {
     font-size: 12px;
-    margin-bottom: 46px;
   }
 }
 

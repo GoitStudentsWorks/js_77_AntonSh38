@@ -52,7 +52,7 @@ const aboutRender = data.map(({ id, text, imageUrl }) => {
 
         <img src="${imageUrl}" alt="about" class="about-img"></img>
       </picture>
-      <div class="about-overlay qwe">
+      <div class="about-overlay mobile">
         <p class="about-id">${text}</p>
       </div>
     </div> 
@@ -61,23 +61,28 @@ const aboutRender = data.map(({ id, text, imageUrl }) => {
 
 document.querySelector('.swiper-wrapper').innerHTML = aboutRender.join('');
 
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.about-js', {
   modules: [Navigation, Pagination, Keyboard],
 
   loop: false,
   slidesPerView: 1,
   spaceBetween: 30,
+
   keyboard: {
     enabled: true,
     onlyInViewport: true,
     pageUpDown: true,
   },
+
+  wrapperClass: 'swiper-wrapper-about',
+  slideClass: 'about-slide',
+
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
   pagination: {
-    el: '.swiper-pagination',
+    el: '.swiper-pagination-about',
     clickable: true,
   },
 });
