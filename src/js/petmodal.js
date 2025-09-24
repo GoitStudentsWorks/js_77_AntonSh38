@@ -16,10 +16,9 @@ petsCardList.addEventListener('click', event => {
   const instance = basicLightbox.create(
     `
     <div class="pets-modal modal">
-    
+
         <div class="pets-container-modal modal-container">
-        
-       
+
             <div class="pets-wrapper-modal">
                 <img src="${animal.image}" class="pets-icons-modal" alt="${animal.shortDescription}"/>
             </div>
