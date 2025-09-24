@@ -58,7 +58,7 @@ function renderStars() {
         precision: 2,
         readOnly: true,
         normalFill: '#E0E0E0',
-        ratedFill: '#F6C200',
+        ratedFill: '#c3b49d',
         spacing: '6px',
       });
 
