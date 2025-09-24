@@ -13,6 +13,17 @@ export async function getFeedbacks() {
     });
     return data;
   } catch (error) {
-    console.error(error);
+    if (error.response) {
+      const message =
+        error.response.data?.message ||
+        `Помилка сервера: ${error.response.status}`;
+      throw new Error(message);
+    } else if (error.request) {
+      throw new Error(
+        "Не вдалося з'єднатися з сервером. Перевірте інтернет-з'єднання"
+      );
+    } else {
+      throw new Error('Помилка при відправці запиту');
+    }
   }
 }
