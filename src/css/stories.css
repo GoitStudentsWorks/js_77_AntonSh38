@@ -43,7 +43,6 @@
   padding: 0;
   z-index: 1;
   display: block;
-
 }
 
 .swiper-wrapper-story {
@@ -84,7 +83,7 @@
 
 .story-author {
   font-weight: 600;
-  margin-top: auto;
+  margin-top: 32px;
 }
 
 @media only screen and (min-width: 1440px) {
@@ -99,7 +98,6 @@
   align-items: center;
   width: 100%;
 }
- 
 
 .swiper-pagination-story {
   position: static !important;
@@ -107,7 +105,6 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  
 }
 
 .swiper-pagination-story .swiper-pagination-bullet {
@@ -124,7 +121,6 @@
 
 .swiper-pagination-story {
   margin-right: auto;
-  
 }
 
 .navigation-buttons-story {
