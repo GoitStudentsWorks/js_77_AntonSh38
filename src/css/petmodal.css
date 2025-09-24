@@ -1,0 +1,193 @@
+body .basicLightbox {
+  padding: 64px 20px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  border-radius: 8px;
+  padding: 64px 20px;
+  background-color: var(--background-color);
+}
+
+.pets-modal {
+  max-width: 1312px;
+}
+
+@media only screen and (min-width: 768px) {
+  .pets-modal {
+    padding: 64px 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .pets-modal {
+    padding: 64px 64px;
+  }
+}
+
+.pets-container-modal {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+  .pets-container-modal {
+    flex-direction: row;
+  }
+}
+
+.pets-wrapper-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .pets-wrapper-modal {
+    width: calc((100% - 32px) / 2);
+  }
+}
+
+.pets-icons-modal {
+  height: 295px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .pets-icons-modal {
+    height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+.modal-pet-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-pet-info-species {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .modal-pet-info-species {
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.modal-pet-info-name {
+  font-weight: 700;
+  font-size: 32px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@media only screen and (min-width: 1440px) {
+  .modal-pet-info-name {
+    font-size: 40px;
+  }
+}
+
+.modal-pet-info-special-group {
+  font-weight: 400;
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .modal-pet-info-special-group {
+    font-size: 14px;
+  }
+}
+
+.modal-pet-description {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modal-pet-description-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-pet-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .modal-pet-title {
+    font-size: 16px;
+  }
+}
+.modal-pet-text {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .modal-pet-text {
+    font-size: 16px;
+  }
+}
+
+.modal-pet-btn {
+  height: 45px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .modal-pet-btn {
+    order: -1;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .modal-pet-btn {
+    order: 0;
+    height: 48px;
+  }
+}
+
+.modal-pet-btn:active {
+  box-shadow: inset 0 4px 6px -2px rgba(0, 0, 0, 0.03),
+    inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
+  background-color: #eee9e3;
+}
+
+.modal-btn-close {
+  height: 24px;
+  width: 24px;
+}
+
+.modal-pet-btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal-pet-svg {
+  stroke: #000;
+  fill: none;
+}
