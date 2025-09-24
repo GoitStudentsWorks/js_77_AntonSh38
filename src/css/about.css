@@ -39,6 +39,12 @@
   position: relative;
 }
 
+.swiper-pagination-about .swiper-pagination-bullet {
+  background-color: black;
+  position: relative;
+  bottom: 5px;
+}
+
 .btn-container {
   margin-top: 24px;
   height: 48px;
@@ -99,15 +105,6 @@
   padding-bottom: 40px;
 }
 
-.about-text {
-  font-weight: var(--font-weight);
-  font-size: var(--font-size);
-  line-height: var(--line-height);
-  color: var(--background-color);
-  width: 295px;
-  display: flex;
-}
-
 .story-button-icon {
   width: 24px !important;
   height: 24px !important;
@@ -134,7 +131,6 @@
 @media only screen and (min-width: 768px) {
   .testL {
     position: absolute !important;
-    left: -20px !important;
   }
 }
 
@@ -155,13 +151,6 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .about-text {
-    width: 548px;
-    height: 72px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
   .about-overlay {
     padding: 0 124px 32px 32px;
   }
@@ -174,21 +163,15 @@
 }
 
 /* desktop */
-@media only screen and (min-width: 1440px) {
-  .about-text {
-    font-size: 18px;
-    height: 108px;
-  }
-}
 
 @media only screen and (min-width: 1440px) {
   .about-id {
-    height: 108px;
+    font-size: 18px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .about-overlay {
-    padding: 0 700px 64px 63.5px;
+    padding: 0 700px 64px 63px;
   }
 }

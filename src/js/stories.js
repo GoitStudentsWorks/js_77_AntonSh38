@@ -87,7 +87,7 @@ function initSwiper() {
       el: '.swiper-pagination-story',
       type: 'bullets',
       dynamicBullets: true,
-      dynamicMainBullets: 5,
+      dynamicMainBullets: 4,
     },
 
     breakpoints: {
