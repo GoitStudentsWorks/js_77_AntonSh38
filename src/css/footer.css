@@ -6,6 +6,7 @@
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .footer-logo {
@@ -67,9 +68,10 @@
 
 .line {
   border: 1px solid rgba(2, 6, 10, 0.15);
-  max-width: 1200px;
+  width: 100%;
+  max-width: 335px;
   height: 0px;
-  margin: 0 0 32px;
+  margin: 0 auto 32px;
 }
 
 .footer-text {
@@ -93,6 +95,10 @@
     flex-direction: row;
     justify-content: center;
     gap: 32px;
+  }
+
+  .line {
+    max-width: 704px;
   }
 }
 
@@ -123,5 +129,9 @@
 
   .footer-text {
     font-size: 14px;
+  }
+
+  .line {
+    max-width: 1312px;
   }
 }
