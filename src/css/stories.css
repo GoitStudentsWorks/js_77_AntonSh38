@@ -54,25 +54,27 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: auto;
   flex-shrink: 0;
 }
 
 .story-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 230px;
+  
 }
 
 .story-rating {
   display: flex;
-  align-items: center;
   margin-bottom: 16px;
+  align-items: flex-start;
 }
 
 .story-review {
   font-size: 18px;
-  margin-bottom: auto;
   flex-grow: 1;
+  margin-bottom: 32px;
 }
 
 @media only screen and (min-width: 1440px) {
@@ -83,6 +85,8 @@
 
 .story-author {
   font-weight: 600;
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 @media only screen and (min-width: 1440px) {
