@@ -7,7 +7,6 @@ import { getFeedbacks } from './stories.api';
 import { showLoader, hideLoader } from './loader';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-
 import 'rateyo/lib/cjs/rateyo.css';
 import RateYo from 'rateyo';
 
@@ -86,7 +85,7 @@ function initSwiper() {
 
     pagination: {
       el: '.swiper-pagination-story',
-      clickable: true,
+      type: 'bullets',
       dynamicBullets: true,
     },
 
