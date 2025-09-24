@@ -44,6 +44,7 @@ async function loadCategories() {
   try {
     const categories = await getCategories();
     const markupCategories = categories
+      .sort((a, b) => a._id.localeCompare(b._id))
       .map(
         category =>
           `<li class="pets-nav-item" data-id="${category._id}">${category.name}</li>`

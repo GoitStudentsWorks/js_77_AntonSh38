@@ -58,7 +58,6 @@
 .pets-nav-item.active,
 .pets-nav-item:hover {
   background-color: var(--btnsecond-bg);
-  font-weight: 500;
 }
 
 .pets-card-top {
