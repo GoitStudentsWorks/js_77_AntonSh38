@@ -1,5 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { openOrderModal } from './ordermodal';
 
 const petsCardList = document.querySelector('.pets-card-list');
 
@@ -73,6 +74,7 @@ petsCardList.addEventListener('click', event => {
 
         takeHomeBtn.addEventListener('click', () => {
           instance.close();
+          openOrderModal();
 
           const orderModal = document.querySelector('.backdrop-order');
           orderModal.style.display = 'flex';
