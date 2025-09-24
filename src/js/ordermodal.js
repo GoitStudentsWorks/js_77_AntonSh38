@@ -1,8 +1,9 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import * as basicLightbox from 'basiclightbox';
+import axios from 'axios';
 
-export function openOrderModal() {
+export function openOrderModal(animalId) {
   const modalTemplate = document.querySelector('.backdrop-order').innerHTML;
 
   const instance = basicLightbox.create(modalTemplate, {
@@ -62,12 +63,25 @@ export function openOrderModal() {
         }
 
         // Надсилання даних
+        const phoneClean = phoneL.replace(/\D/g, '');
+        if (phoneClean.length !== 12) {
+          phoneInput.classList.add('error');
+          iziToast.error({
+            message:
+              'Номер телефону повинен містити 12 цифр без + та пробілів.',
+            position: 'topRight',
+            timeout: 3000,
+            zindex: 999999,
+            appendTo: document.body,
+          });
+          return;
+        }
 
-        const { name, phone, comment } = e.target.elements;
         const formData = {
-          name: name.value,
-          phone: phone.value,
-          comment: comment.value,
+          name: nameL,
+          phone: phoneClean,
+          ...(commentL && { comment: commentL }),
+          animalId,
         };
 
         try {
@@ -81,7 +95,28 @@ export function openOrderModal() {
           console.log('orderData :>>', orderData);
 
           e.target.reset();
-        } catch (error) {}
+        } catch (error) {
+          if (error.response) {
+            console.error('Помилка відповіді сервера:', error.response.data);
+            iziToast.error({
+              message: `Помилка: ${error.response.data.message}`,
+              position: 'topRight',
+              timeout: 3000,
+              zindex: 999999,
+              appendTo: document.body,
+            });
+          } else {
+            console.error('Помилка запиту:', error.message);
+            iziToast.error({
+              message: `Помилка запиту: ${error.message}`,
+              position: 'topRight',
+              timeout: 3000,
+              zindex: 999999,
+              appendTo: document.body,
+            });
+          }
+          return;
+        }
 
         // Очистка
         form.reset();
