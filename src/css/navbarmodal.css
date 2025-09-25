@@ -28,9 +28,6 @@
 }
 
 .mobile-nav-btn {
-  display: flex;
-
-  flex-direction: column;
   gap: 64px;
   padding: 0 20px 80px 20px;
 
@@ -77,12 +74,16 @@
 
   display: flex;
   align-items: center;
+
   justify-content: center;
   flex-direction: column;
   gap: 32px;
 }
 
-.nav-link {
+@media only screen and (min-width: 768px) {
+  .nav-link {
+    margin: auto auto 32px;
+  }
 }
 
 .header-btn {
