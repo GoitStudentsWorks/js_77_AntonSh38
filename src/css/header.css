@@ -37,11 +37,25 @@
 .nav-list {
   display: none;
 }
+
 @media only screen and (min-width: 1440px) {
   .nav-list {
     display: flex;
     gap: 32px;
     margin-left: 24px;
+
+    list-style: none;
+  }
+  .nav-link {
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    border-bottom: 1px solid #443b2e;
+    width: 30px;
+    height: 24px;
   }
 }
 
