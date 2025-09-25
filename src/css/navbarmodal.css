@@ -5,9 +5,10 @@
   z-index: 99999999;
 
   background: #f6f4f1;
-  width: 375px;
-  height: 661px;
+  width: 100%;
+  height: 100%;
 
+  height: 100%;
   opacity: 0;
   pointer-events: none;
 
@@ -17,8 +18,7 @@
 
 @media only screen and (min-width: 768px) {
   .mobile-menu {
-    width: 768px;
-    height: 604px;
+    width: 100%;
   }
 }
 
@@ -28,37 +28,47 @@
 }
 
 .mobile-nav-btn {
-  gap: 64px;
-  padding: 0 20px 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 
-  width: 375px;
-  height: 401px;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 32px;
 }
 
 @media only screen and (min-width: 768px) {
   .mobile-nav-btn {
-    margin: auto auto 32px;
-    display: block;
-    padding: 24px 0px 0px;
-    width: 704px;
-    height: 305px;
+    align-items: center;
+    width: 100%;
+    height: 100%;
   }
 }
 
 .mobile-menu-header {
-  padding-left: 20px;
-  padding-top: 5px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  align-items: center;
 }
 
-.logo {
+.logo-paw {
+  padding-right: 8px;
 }
 
 .mobile-menu-close {
   position: absolute;
   background-color: transparent;
-  top: 20px;
-  right: 24px;
+  top: 24px;
+  right: 18px;
   border: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-menu-close {
+    right: 38px;
+  }
 }
 
 .mobile-menu-icon {
@@ -71,19 +81,18 @@
 }
 
 .mobile-nav-list {
-  width: 335px;
+  margin: 0 auto;
+  width: 100%;
   height: 180px;
-  display: flex;
 
+  display: flex;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 32px;
 }
 
-@media only screen and (min-width: 768px) {
-  .nav-link {
-    margin: auto auto 32px;
-  }
+.nav-link {
 }
 
 .header-btn {
@@ -93,8 +102,24 @@
   border: 1px solid #88765c;
   border-radius: 8px;
   padding: 8px 20px;
-  width: 100%;
+  width: 335px;
   height: 37px;
   background: #88765c;
   color: #fff;
+  margin: 0 auto;
+}
+
+.header-btn.mobile-nav-btn:hover,
+.header-btn.mobile-nav-btn:focus {
+  border: 1px solid #02060a;
+  background-color: var(--btnfirst-hover-bg);
+  color: var(--color);
+  transition: 0.3s ease-in-out;
+}
+
+@media only screen and (min-width: 768px) {
+  .header-btn.mobile-nav-btn {
+    width: 196px;
+    height: 37px;
+  }
 }
