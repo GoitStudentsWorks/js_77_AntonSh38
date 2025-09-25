@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const getHeaderOffset = () => (isSticky(header) ? header.offsetHeight : 0);
-
   const openMenu = () => {
     if (!mobileMenu) return;
     mobileMenu.classList.add('active');
