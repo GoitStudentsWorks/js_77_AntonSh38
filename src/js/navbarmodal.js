@@ -11,18 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     '.mobile-nav-btn, .mobile-nav a[href="#pets"]'
   );
 
-  const mobilePetsBtnA = document.querySelector(
-    '.mobile-nav-btn, .mobile-nav a[href="#about"]'
-  );
-
-  const mobilePetsBtnB = document.querySelector(
-    '.mobile-nav-btn, .mobile-nav a[href="#faq"]'
-  );
-
-  const mobilePetsBtnC = document.querySelector(
-    '.mobile-nav-btn, .mobile-nav a[href="#stories"]'
-  );
-
   const isSticky = el => {
     if (!el) return false;
     const pos = getComputedStyle(el).position;
@@ -81,24 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     closeMenu();
     smoothScrollToId('pets');
-  });
-
-  mobilePetsBtnA?.addEventListener('click', e => {
-    e.preventDefault();
-    closeMenu();
-    smoothScrollToId('about');
-  });
-
-  mobilePetsBtnB?.addEventListener('click', e => {
-    e.preventDefault();
-    closeMenu();
-    smoothScrollToId('faq');
-  });
-
-  mobilePetsBtnC?.addEventListener('click', e => {
-    e.preventDefault();
-    closeMenu();
-    smoothScrollToId('stories');
   });
 
   // Універсально: всі якірні лінки в документі
