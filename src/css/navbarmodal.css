@@ -1,27 +1,17 @@
 .mobile-menu {
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
   position: fixed;
   top: 0;
   left: 0;
   z-index: 99999999;
-  width: 100%;
-  height: 100vh;
-  background-color: black;
+  /* width: 100%;
+  height: 100vh; */
+  background: #f6f4f1;
   opacity: 0;
   pointer-events: none;
   padding-left: 20px;
   width: 375px;
   height: 661px;
 }
-
-/* .mobile-menu.active {
-  display: flex;
-} */
-
-/* .mobile-menu {
-} */
 
 .mobile-nav-btn {
   display: flex;
