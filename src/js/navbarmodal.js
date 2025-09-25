@@ -6,8 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.header'); // sticky header
 
   // Якщо в мобільному меню є кнопка або лінк до pets:
+
   const mobilePetsBtn = document.querySelector(
     '.mobile-nav-btn, .mobile-nav a[href="#pets"]'
+  );
+
+  const mobilePetsBtnA = document.querySelector(
+    '.mobile-nav-btn, .mobile-nav a[href="#about"]'
+  );
+
+  const mobilePetsBtnB = document.querySelector(
+    '.mobile-nav-btn, .mobile-nav a[href="#faq"]'
+  );
+
+  const mobilePetsBtnC = document.querySelector(
+    '.mobile-nav-btn, .mobile-nav a[href="#stories"]'
   );
 
   const isSticky = el => {
@@ -70,8 +83,26 @@ document.addEventListener('DOMContentLoaded', () => {
     smoothScrollToId('pets');
   });
 
+  mobilePetsBtnA?.addEventListener('click', e => {
+    e.preventDefault();
+    closeMenu();
+    smoothScrollToId('about');
+  });
+
+  mobilePetsBtnB?.addEventListener('click', e => {
+    e.preventDefault();
+    closeMenu();
+    smoothScrollToId('faq');
+  });
+
+  mobilePetsBtnC?.addEventListener('click', e => {
+    e.preventDefault();
+    closeMenu();
+    smoothScrollToId('stories');
+  });
+
   // Універсально: всі якірні лінки в документі
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
+  document.querySelectorAll('a[href^="#stories"]').forEach(link => {
     link.addEventListener('click', e => {
       const hash = link.getAttribute('href');
       const id = hash?.slice(1);
