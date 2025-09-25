@@ -15,20 +15,34 @@
   overflow-y: auto;
 }
 
+@media only screen and (min-width: 768px) {
+  .mobile-menu {
+    width: 768px;
+    height: 604px;
+  }
+}
+
 .mobile-menu.active {
   opacity: 1;
   pointer-events: auto;
 }
 
 .mobile-nav-btn {
-  display: flex;
-
-  flex-direction: column;
   gap: 64px;
   padding: 0 20px 80px 20px;
 
   width: 375px;
   height: 401px;
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-nav-btn {
+    margin: auto auto 32px;
+    display: block;
+    padding: 24px 0px 0px;
+    width: 704px;
+    height: 305px;
+  }
 }
 
 .mobile-menu-header {
@@ -60,13 +74,16 @@
   width: 335px;
   height: 180px;
   display: flex;
-  align-items: flex-start;
+
   justify-content: center;
   flex-direction: column;
   gap: 32px;
 }
 
-.nav-link {
+@media only screen and (min-width: 768px) {
+  .nav-link {
+    margin: auto auto 32px;
+  }
 }
 
 .header-btn {
